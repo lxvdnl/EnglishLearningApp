@@ -1002,8 +1002,8 @@ button:disabled {
 
 .swipe-line {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 10%;
+  bottom: 10%;
   width: 2px;
   border-radius: 99px;
   transition: opacity 0.15s;
