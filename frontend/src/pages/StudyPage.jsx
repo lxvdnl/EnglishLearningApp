@@ -65,7 +65,7 @@ export default function StudyPage() {
     setDragX(x)
   }
 
-  const onPointerUp = async (e) => {
+  const onPointerUp = (e) => {
     if (!drag.current.active) return
     const x = drag.current.x
     drag.current = { active: false, x: 0, startX: 0 }
@@ -76,7 +76,7 @@ export default function StudyPage() {
     }
 
     const status = x > 0 ? 'learned' : 'learning'
-    await updateCardStatusApi(current.id, status)
+    updateCardStatusApi(current.id, status)
     if (status === 'learned') setLearned((n) => n + 1)
     else setLearning((n) => n + 1)
 
@@ -163,8 +163,8 @@ export default function StudyPage() {
         <div className="swipe-buttons">
           <button
             className="swipe-btn swipe-btn-learning"
-            onClick={async () => {
-              await updateCardStatusApi(current.id, 'learning')
+            onClick={() => {
+              updateCardStatusApi(current.id, 'learning')
               setLearning((n) => n + 1)
               setExiting('left')
               setTimeout(() => {
@@ -178,8 +178,8 @@ export default function StudyPage() {
           </button>
           <button
             className="swipe-btn swipe-btn-learned"
-            onClick={async () => {
-              await updateCardStatusApi(current.id, 'learned')
+            onClick={() => {
+              updateCardStatusApi(current.id, 'learned')
               setLearned((n) => n + 1)
               setExiting('right')
               setTimeout(() => {
