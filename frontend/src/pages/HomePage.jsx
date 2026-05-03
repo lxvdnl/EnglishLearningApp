@@ -20,13 +20,24 @@ export default function HomePage() {
       .finally(() => setLoading(false))
   }, [])
 
+  useEffect(() => {
+    document.body.style.position = 'fixed'
+    document.body.style.width = '100%'
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.position = ''
+      document.body.style.width = ''
+      document.body.style.overflow = ''
+    }
+  }, [])
+
   if (loading) return <div className="page-center">Loading...</div>
   if (error)   return <div className="page-center error">{error}</div>
 
   return (
     <div className="home-page">
       <div className="home-header">
-        <h1>My Sets</h1>
+        <h1 className="home-title">My Sets</h1>
         <div className="home-header-right">
           <input
             className="search-input"
@@ -34,7 +45,10 @@ export default function HomePage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button onClick={() => navigate('/sets/create')}>+ New Set</button>
+          <button onClick={() => navigate('/sets/create')}>
+            <span className="btn-text-desktop">+ New Set</span>
+            <span className="btn-text-mobile">+</span>
+          </button>
         </div>
       </div>
 

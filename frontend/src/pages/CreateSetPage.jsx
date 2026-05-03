@@ -98,7 +98,7 @@ export default function CreateSetPage() {
       {/* ── Cards ── */}
       <div className="create-section">
         <div className="cards-header">
-          <span>Cards ({cards.length})</span>
+          <span>Cards {cards.length}</span>
           <div className="cards-header-btns">
             <button className="btn-add-card" onClick={addCard}>
               + Add card

@@ -7,6 +7,10 @@ import './styles/index.css'
 const savedTheme = localStorage.getItem('theme') || 'blue'
 document.documentElement.setAttribute('data-theme', savedTheme)
 
+document.addEventListener('touchmove', (e) => {
+  if (e.touches.length > 1) e.preventDefault()
+}, { passive: false })
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>

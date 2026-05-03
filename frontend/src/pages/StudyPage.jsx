@@ -29,6 +29,17 @@ export default function StudyPage() {
       .finally(() => setLoading(false))
   }, [setId])
 
+  useEffect(() => {
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = prev
+      document.documentElement.style.overflow = ''
+    }
+  }, [])
+
+
   const current = cards[index]
   const total = cards.length
   const swipeProgress = Math.min(Math.abs(dragX) / THRESHOLD, 1)
@@ -103,6 +114,7 @@ export default function StudyPage() {
     <div className="study-page" style={{ background: bgColor }}>
       <button className="study-back-absolute" onClick={() => navigate('/')}>← Back</button>
 
+      <div className="study-content">
       <div className="study-header">
         <h2 className="study-set-name">{set.name}</h2>
         {set.description && <p className="study-set-desc">{set.description}</p>}
@@ -193,6 +205,7 @@ export default function StudyPage() {
             Know
           </button>
         </div>
+      </div>
       </div>
     </div>
   )
