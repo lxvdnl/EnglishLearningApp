@@ -352,6 +352,38 @@ button:disabled {
 .btn-text-desktop { display: inline; }
 
 @media (max-width: 768px) {
+  .study-page {
+    height: 100dvh;
+    overflow: hidden;
+    padding: 16px;
+    justify-content: space-between;
+  }
+
+  .study-card-wrapper {
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+    padding-top: 12px;
+    gap: 16px;
+  }
+
+  .study-card {
+    width: 270px;
+    max-width: 270px;
+    flex: 1;
+    max-height: 340px;
+    height: auto;
+    margin: 0 auto;
+    align-self: center;
+  }
+
+  .swipe-buttons {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 768px) {
   .home-title {
     display: none;
   }

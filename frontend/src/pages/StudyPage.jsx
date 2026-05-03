@@ -29,6 +29,7 @@ export default function StudyPage() {
       .finally(() => setLoading(false))
   }, [setId])
 
+
   const current = cards[index]
   const total = cards.length
   const swipeProgress = Math.min(Math.abs(dragX) / THRESHOLD, 1)
