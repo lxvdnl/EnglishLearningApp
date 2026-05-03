@@ -345,6 +345,37 @@ button:disabled {
   width: auto;
   padding: 10px 18px;
   margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.btn-text-mobile { display: none; }
+.btn-text-desktop { display: inline; }
+
+@media (max-width: 768px) {
+  .home-title {
+    display: none;
+  }
+
+  .home-header {
+    justify-content: space-between;
+  }
+
+  .home-header-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-text-desktop { display: none; }
+  .btn-text-mobile { display: inline; }
+
+  .home-header button {
+    padding: 8px 14px;
+    font-size: 18px;
+    font-weight: 700;
+    width: auto;
+  }
 }
 
 .sets-list {
