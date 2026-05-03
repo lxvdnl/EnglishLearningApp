@@ -1224,25 +1224,30 @@ button:disabled {
 }
 
 .swipe-btn-learning {
-  background: rgba(255, 160, 60, 0.06);
-  border-color: #ffa03c;
-  color: #ffa03c;
+  background: rgba(255, 160, 60, 0.3);
+  border-color: transparent;
+  color: #c87020;
 }
 
-.swipe-btn-learning:hover {
-  background: rgba(255, 160, 60, 0.12);
-  box-shadow: 0 0 20px rgba(255, 160, 60, 0.15);
+.swipe-btn.swipe-btn-learning:hover,
+.swipe-btn.swipe-btn-learned:hover {
+  transform: none;
+}
+
+.swipe-btn.swipe-btn-learning:hover:not(:disabled) {
+  background: rgba(255, 160, 60, 0.46);
+  box-shadow: 0 0 20px rgba(255, 160, 60, 0.2);
 }
 
 .swipe-btn-learned {
-  background: rgba(78, 203, 113, 0.06);
-  border-color: #4ecb71;
-  color: #4ecb71;
+  background: rgba(78, 203, 113, 0.3);
+  border-color: transparent;
+  color: #1a7a40;
 }
 
-.swipe-btn-learned:hover {
-  background: rgba(78, 203, 113, 0.12);
-  box-shadow: 0 0 20px rgba(78, 203, 113, 0.15);
+.swipe-btn.swipe-btn-learned:hover:not(:disabled) {
+  background: rgba(78, 203, 113, 0.46);
+  box-shadow: 0 0 20px rgba(78, 203, 113, 0.2);
 }
 
 /* Done screen */
@@ -1341,27 +1346,6 @@ button:disabled {
   font-weight: 700;
 }
 
-/* ===== SWIPE LINES ===== */
-
-.swipe-line {
-  position: absolute;
-  top: 10%;
-  bottom: 10%;
-  width: 2px;
-  border-radius: 99px;
-  transition: opacity 0.15s;
-  pointer-events: none;
-}
-
-.swipe-line-left {
-  left: calc(50% - 130px);
-  background: linear-gradient(to bottom, transparent, #ffa03c 40%, #ffa03c 60%, transparent);
-}
-
-.swipe-line-right {
-  right: calc(50% - 130px);
-  background: linear-gradient(to bottom, transparent, #4ecb71 40%, #4ecb71 60%, transparent);
-}
 
 .home-header-right {
   display: flex;

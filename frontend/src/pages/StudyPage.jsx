@@ -129,15 +129,6 @@ export default function StudyPage() {
       <div className="study-card-wrapper" ref={wrapperRef}>
 
         <div
-          className="swipe-line swipe-line-left"
-          style={{ opacity: dragX < 0 ? 0.15 + swipeProgress * 0.6 : 0.12 }}
-        />
-        <div
-          className="swipe-line swipe-line-right"
-          style={{ opacity: dragX > 0 ? 0.15 + swipeProgress * 0.6 : 0.12 }}
-        />
-
-        <div
           key={index}
           ref={cardRef}
           className={`study-card ${flipped ? 'flipped' : ''}`}
