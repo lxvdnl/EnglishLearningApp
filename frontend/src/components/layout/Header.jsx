@@ -4,10 +4,10 @@ import useAuthStore from '../../store/authStore'
 import useThemeStore from '../../store/themeStore'
 
 const THEMES = [
-  { id: 'blue',  label: 'Blue' },
-  { id: 'pink',  label: 'Pink' },
-  { id: 'green', label: 'Green' },
-  { id: 'brown', label: 'Brown' },
+  { id: 'midnight', label: 'Midnight' },
+  { id: 'forest',   label: 'Forest'   },
+  { id: 'lavender', label: 'Lavender' },
+  { id: 'sunrise',  label: 'Sunrise'  },
 ]
 
 export default function Header() {
