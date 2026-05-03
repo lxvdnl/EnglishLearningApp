@@ -634,12 +634,15 @@ button:disabled {
     gap: 16px;
   }
 
-  .study-card {
+  .study-card-area {
+    height: 390px;
     width: 270px;
     max-width: 270px;
-    height: 390px;
-    margin: 0 auto;
-    align-self: center;
+  }
+
+  .study-card {
+    width: 100%;
+    height: 100%;
   }
 
   .swipe-buttons {
@@ -1123,6 +1126,25 @@ button:disabled {
   gap: 28px;
   width: 100%;
   max-width: 450px;
+}
+
+/* Контейнер с фиксированным размером — позиционирует ExitCard и новую карточку */
+.study-card-area {
+  position: relative;
+  width: 100%;
+  height: 330px;
+}
+
+/* Обёртка-аниматор входа новой карточки */
+@keyframes card-enter {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.card-enter-anim {
+  width: 100%;
+  height: 100%;
+  animation: card-enter 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* Flip container */
