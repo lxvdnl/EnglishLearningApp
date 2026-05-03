@@ -1,62 +1,58 @@
-# English Learning App
+# EnglishLearningApp
 
-## Test user
+Web app for learning English vocabulary using flashcard sets. Users create sets of word cards, study them, and track progress (new / learning / learned).
 
-Для быстрого входа:
+**Stack:** React + Vite · Node.js + Express · PostgreSQL · Docker Compose
 
-- Login: `danila@mail.ru`
-- Password: `1234567890`
+## Setup
 
----
+**1. Copy env file and fill in values:**
 
-## Запуск проекта
+```bash
+cp .env.example .env
+```
 
-### Запуск всех сервисов
+`.env` variables:
+
+```
+DB_USER=        # postgres username
+DB_PASSWORD=    # postgres password
+DB_NAME=        # database name
+DB_HOST=postgres
+DB_PORT=5432
+
+PORT=3000
+JWT_SECRET=     # any random secret string
+
+PGADMIN_EMAIL=  # pgAdmin login email
+PGADMIN_PASSWORD= # pgAdmin password
+```
+
+**2. Start:**
 
 ```bash
 docker compose up
 ```
 
-### Запуск с пересборкой (если менялся server.js или package.json)
+On first run PostgreSQL initializes the schema automatically from `backend/src/db/init.sql`.
+
+## Services
+
+| Service  | URL                   |
+|----------|-----------------------|
+| Frontend | http://localhost:5173 |
+| Backend  | http://localhost:3000 |
+| pgAdmin  | http://localhost:5050 |
+
+## Useful commands
 
 ```bash
+# Rebuild backend after dependency changes
 docker compose up --build
-```
 
-### Остановка проекта
-
-```bash
+# Stop all services
 docker compose down
+
+# Reset database (deletes all data)
+docker compose down && rm -rf ./postgres-data && docker compose up
 ```
-
-### Перезапуск только backend (Node.js app)
-
-Если менялся server.js:
-
-```bash
-docker restart english_learning_app
-```
-
-## Логи приложения
-
-Просмотр логов в реальном времени
-
-```bash
-docker logs -f english_learning_app
-```
-
-## База данных
-
-### Удаляет все данные
-
-```bash
-docker compose down
-rm -rf ./postgres-data
-docker compose up --build
-```
-
-
-
----
-Переделать правильно css и добавить классы в html
----

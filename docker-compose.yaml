@@ -25,10 +25,17 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+    entrypoint: >
+      sh -c "envsubst < /pgadmin4/servers.json.template > /pgadmin4/servers.json
+      && /entrypoint.sh"
     ports:
       - "5050:80"
     volumes:
-      - ./pgadmin/servers.json:/pgadmin4/servers.json
+      - ./pgadmin/servers.json.template:/pgadmin4/servers.json.template
     depends_on:
       - postgres
 
