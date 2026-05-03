@@ -1158,9 +1158,8 @@ button:disabled {
   position: absolute;
   inset: 0;
   border-radius: 22px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* Solid background — backdrop-filter breaks backface-visibility */
+  background: var(--color-surface);
   border: 1px solid var(--glass-border);
   display: flex;
   flex-direction: column;

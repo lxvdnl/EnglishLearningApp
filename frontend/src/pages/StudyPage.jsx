@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getCardsApi, updateCardStatusApi } from '../api/cards.api'
 
-const THRESHOLD = 130
+const THRESHOLD = 60
 
 export default function StudyPage() {
   const { setId } = useParams()
@@ -70,21 +70,17 @@ export default function StudyPage() {
     const x = drag.current.x
     drag.current = { active: false, x: 0, startX: 0 }
 
-    const screenCenterX = window.innerWidth / 2
-    const distFromCenter = e.clientX - screenCenterX
-    const crossed = Math.abs(distFromCenter) >= THRESHOLD
-
-    if (!crossed) {
+    if (Math.abs(x) < THRESHOLD) {
       setDragX(0)
       return
     }
 
-    const status = distFromCenter > 0 ? 'learned' : 'learning'
+    const status = x > 0 ? 'learned' : 'learning'
     await updateCardStatusApi(current.id, status)
     if (status === 'learned') setLearned((n) => n + 1)
     else setLearning((n) => n + 1)
 
-    setExiting(distFromCenter > 0 ? 'right' : 'left')
+    setExiting(x > 0 ? 'right' : 'left')
     setDragX(0)
 
     setTimeout(() => {
