@@ -430,6 +430,11 @@ button:disabled {
   flex: 1;
   -webkit-overflow-scrolling: touch;
   padding-top: 4px;
+  scrollbar-width: none;
+}
+
+.sets-list::-webkit-scrollbar {
+  display: none;
 }
 
 .set-card {
@@ -537,7 +542,7 @@ button:disabled {
 .btn-add-card {
   background: none;
   border: 1px solid var(--color-border);
-  color: var(--color-text-muted);
+  color: var(--color-text);
   border-radius: 8px;
   padding: 8px 14px;
   cursor: pointer;
