@@ -185,14 +185,18 @@ button:disabled {
 /* ===== LAYOUT ===== */
 
 .layout {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .main {
   flex: 1;
   padding: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ===== HEADER ===== */
@@ -323,11 +327,14 @@ button:disabled {
 
 .home-page {
   max-width: 680px;
+  width: 100%;
   margin: 0 auto;
   padding: 32px 16px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  flex: 1;
+  overflow: hidden;
 }
 
 .home-header {
@@ -420,6 +427,10 @@ button:disabled {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  overflow-y: auto;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 4px;
 }
 
 .set-card {
@@ -474,6 +485,7 @@ button:disabled {
 /* ===== CREATE SET ===== */
 
 .create-page {
+  width: 100%;
   max-width: 720px;
   margin: 0 auto;
   padding: 32px 16px;

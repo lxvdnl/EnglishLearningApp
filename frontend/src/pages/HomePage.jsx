@@ -20,6 +20,17 @@ export default function HomePage() {
       .finally(() => setLoading(false))
   }, [])
 
+  useEffect(() => {
+    document.body.style.position = 'fixed'
+    document.body.style.width = '100%'
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.position = ''
+      document.body.style.width = ''
+      document.body.style.overflow = ''
+    }
+  }, [])
+
   if (loading) return <div className="page-center">Loading...</div>
   if (error)   return <div className="page-center error">{error}</div>
 
