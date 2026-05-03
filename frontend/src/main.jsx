@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './styles/index.css'
 
-const savedTheme = localStorage.getItem('theme') || 'blue'
+const savedTheme = localStorage.getItem('theme') || 'midnight'
 document.documentElement.setAttribute('data-theme', savedTheme)
 
 document.addEventListener('touchmove', (e) => {

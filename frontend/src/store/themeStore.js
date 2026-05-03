@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 const useThemeStore = create((set) => ({
-  theme: localStorage.getItem('theme') || 'dark',
+  theme: localStorage.getItem('theme') || 'midnight',
 
   setTheme: (theme) => {
     localStorage.setItem('theme', theme)

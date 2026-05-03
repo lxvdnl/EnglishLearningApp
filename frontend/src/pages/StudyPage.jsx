@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getCardsApi, updateCardStatusApi } from '../api/cards.api'
 
-const THRESHOLD = 130
+const THRESHOLD = 60
 
 export default function StudyPage() {
   const { setId } = useParams()
@@ -65,26 +65,22 @@ export default function StudyPage() {
     setDragX(x)
   }
 
-  const onPointerUp = async (e) => {
+  const onPointerUp = (e) => {
     if (!drag.current.active) return
     const x = drag.current.x
     drag.current = { active: false, x: 0, startX: 0 }
 
-    const screenCenterX = window.innerWidth / 2
-    const distFromCenter = e.clientX - screenCenterX
-    const crossed = Math.abs(distFromCenter) >= THRESHOLD
-
-    if (!crossed) {
+    if (Math.abs(x) < THRESHOLD) {
       setDragX(0)
       return
     }
 
-    const status = distFromCenter > 0 ? 'learned' : 'learning'
-    await updateCardStatusApi(current.id, status)
+    const status = x > 0 ? 'learned' : 'learning'
+    updateCardStatusApi(current.id, status)
     if (status === 'learned') setLearned((n) => n + 1)
     else setLearning((n) => n + 1)
 
-    setExiting(distFromCenter > 0 ? 'right' : 'left')
+    setExiting(x > 0 ? 'right' : 'left')
     setDragX(0)
 
     setTimeout(() => {
@@ -129,15 +125,6 @@ export default function StudyPage() {
       <div className="study-card-wrapper" ref={wrapperRef}>
 
         <div
-          className="swipe-line swipe-line-left"
-          style={{ opacity: dragX < 0 ? 0.15 + swipeProgress * 0.6 : 0.12 }}
-        />
-        <div
-          className="swipe-line swipe-line-right"
-          style={{ opacity: dragX > 0 ? 0.15 + swipeProgress * 0.6 : 0.12 }}
-        />
-
-        <div
           key={index}
           ref={cardRef}
           className={`study-card ${flipped ? 'flipped' : ''}`}
@@ -176,8 +163,8 @@ export default function StudyPage() {
         <div className="swipe-buttons">
           <button
             className="swipe-btn swipe-btn-learning"
-            onClick={async () => {
-              await updateCardStatusApi(current.id, 'learning')
+            onClick={() => {
+              updateCardStatusApi(current.id, 'learning')
               setLearning((n) => n + 1)
               setExiting('left')
               setTimeout(() => {
@@ -191,8 +178,8 @@ export default function StudyPage() {
           </button>
           <button
             className="swipe-btn swipe-btn-learned"
-            onClick={async () => {
-              await updateCardStatusApi(current.id, 'learned')
+            onClick={() => {
+              updateCardStatusApi(current.id, 'learned')
               setLearned((n) => n + 1)
               setExiting('right')
               setTimeout(() => {
