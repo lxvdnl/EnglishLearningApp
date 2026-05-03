@@ -743,9 +743,9 @@ button:disabled {
   background: none;
   border: none;
   color: var(--color-text-muted);
-  font-size: 15px;
+  font-size: 18px;
   cursor: pointer;
-  padding: 6px 10px;
+  padding: 10px 16px;
   border-radius: 8px;
   width: auto;
   transition: color 0.15s, background 0.15s;
