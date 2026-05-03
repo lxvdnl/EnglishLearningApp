@@ -104,6 +104,7 @@ export default function StudyPage() {
     <div className="study-page" style={{ background: bgColor }}>
       <button className="study-back-absolute" onClick={() => navigate('/')}>← Back</button>
 
+      <div className="study-content">
       <div className="study-header">
         <h2 className="study-set-name">{set.name}</h2>
         {set.description && <p className="study-set-desc">{set.description}</p>}
@@ -194,6 +195,7 @@ export default function StudyPage() {
             Know
           </button>
         </div>
+      </div>
       </div>
     </div>
   )

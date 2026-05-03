@@ -356,30 +356,35 @@ button:disabled {
     height: 100dvh;
     overflow: hidden;
     padding: 16px;
-    justify-content: space-between;
+    justify-content: center;
+  }
+
+  .study-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
   }
 
   .study-card-wrapper {
-    flex: 1;
     width: 100%;
     max-width: 100%;
-    justify-content: flex-start;
-    padding-top: 12px;
+    justify-content: center;
     gap: 16px;
   }
 
   .study-card {
     width: 270px;
     max-width: 270px;
-    flex: 1;
-    max-height: 340px;
-    height: auto;
+    height: 340px;
     margin: 0 auto;
     align-self: center;
   }
 
   .swipe-buttons {
     margin-top: 8px;
+    flex-shrink: 0;
   }
 }
 
@@ -707,6 +712,7 @@ button:disabled {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 24px 16px;
   transition: background 0.15s ease;
   position: relative;
@@ -755,7 +761,7 @@ button:disabled {
 }
 
 .study-header {
-  margin-top: 60px;
+  margin-top: 0;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -763,23 +769,30 @@ button:disabled {
 }
 
 .study-set-name {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
 }
 
 .study-set-desc {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--color-text-muted);
 }
 
 .study-progress {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--color-text-muted);
   margin-top: 4px;
 }
 
+.study-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
 .study-card-wrapper {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -834,6 +847,10 @@ button:disabled {
   font-size: 32px;
   font-weight: 700;
   text-align: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .study-card-back {
