@@ -764,6 +764,7 @@ button:disabled {
   perspective: 1000px;
   user-select: none;
   -webkit-user-select: none;
+  touch-action: none;
 }
 
 .study-card-inner {
