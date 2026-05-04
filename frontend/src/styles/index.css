@@ -333,6 +333,93 @@ button:disabled {
   text-decoration: underline;
 }
 
+/* ===== AUTH — EMOJI PICKER ===== */
+
+.auth-back-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  width: auto;
+  align-self: flex-start;
+  transition: color 0.15s;
+}
+
+.auth-back-btn:hover {
+  color: var(--color-text);
+  background: none;
+  transform: none;
+  box-shadow: none;
+}
+
+.avatar-selected {
+  font-size: 52px;
+  text-align: center;
+  line-height: 1;
+  margin: 4px 0;
+}
+
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  max-height: 220px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.emoji-grid::-webkit-scrollbar { display: none; }
+
+.emoji-btn {
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 22px;
+  padding: 4px;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.12s, border-color 0.12s, transform 0.12s;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+}
+
+.emoji-btn:hover {
+  background: var(--color-surface-elevated);
+  transform: scale(1.15);
+  box-shadow: none;
+}
+
+.emoji-btn.active {
+  border-color: var(--color-button);
+  background: var(--surface-input);
+}
+
+/* Emoji grid inside dropdown (smaller) */
+.emoji-grid-dropdown {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px;
+  max-height: 180px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 2px 0;
+}
+
+.emoji-grid-dropdown::-webkit-scrollbar { display: none; }
+
+.emoji-grid-dropdown .emoji-btn {
+  font-size: 18px;
+  padding: 3px;
+  border-radius: 6px;
+}
+
 /* ===== LAYOUT ===== */
 
 .layout {
@@ -379,22 +466,66 @@ button:disabled {
   opacity: 0.8;
 }
 
-.header-settings-btn {
+/* Avatar button in header */
+.header-avatar-btn {
   background: var(--surface-input);
   border: 1px solid var(--color-border);
-  color: var(--color-text);
-  border-radius: 10px;
-  font-size: 16px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, border-color 0.2s;
-  padding: 0 14px;
-  height: 38px;
-  width: auto;
-  font-family: inherit;
-  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  padding: 0;
+  line-height: 1;
+}
+
+.header-avatar-btn:hover {
+  background: var(--color-surface-elevated);
+  border-color: var(--color-text-muted);
+  transform: scale(1.08);
+  box-shadow: none;
+}
+
+/* Avatar button on study page */
+.study-settings-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+}
+
+.study-avatar-btn {
+  background: var(--surface-input);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.2s, transform 0.15s;
+  padding: 0;
+  line-height: 1;
+}
+
+.study-avatar-btn:hover {
+  background: var(--color-surface-elevated);
+  transform: scale(1.08);
+  box-shadow: none;
+}
+
+.study-dropdown {
+  right: 0;
+  left: auto;
+  top: calc(100% + 8px);
 }
 
 .header-settings-btn:hover {

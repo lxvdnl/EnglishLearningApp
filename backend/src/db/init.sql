@@ -1,8 +1,12 @@
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     login TEXT NOT NULL UNIQUE,
-    password_hash TEXT NOT NULL
+    password_hash TEXT NOT NULL,
+    avatar TEXT DEFAULT '🐣'
 );
+
+-- Migration: add avatar column to existing databases
+ALTER TABLE users ADD COLUMN IF NOT EXISTS avatar TEXT DEFAULT '🐣';
 
 CREATE TABLE IF NOT EXISTS card_sets (
     id SERIAL PRIMARY KEY,
